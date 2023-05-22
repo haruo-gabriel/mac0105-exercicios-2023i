@@ -1,0 +1,87 @@
+\documentclass{article}
+\author{Gabriel Haruo Hanai Takeuchi - NUSP: 13671636}
+\title{MAC0105 - Exercícios para 17/05}
+\date{}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[skip=5pt]{parskip}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\base}{\textbf{Base: }}
+\newcommand{\passo}{\textbf{Passo: }}
+
+\begin{document}
+\maketitle
+
+\section*{Exercício 41}
+Prove que para todo inteiro positivo $n$, vale que $13^n$ pode ser escrito como a soma de dois quadrados.
+
+\begin{proof}
+Vamos provar por indução em $n$.
+
+\base Para $n=1$, diretamente $13^1 = 2^2 + 3^2$.
+
+\passo Fixe $n \geq 2$ e suponha para $n-1$, ou seja, nossa hipótese de indução verifica que existem $x,y \in \mathbb{Z}$ tais que $13^{n-1} = x^2 + y^2$.
+
+Queremos provar que existem $z,w \in \mathbb{Z}$ tais que $13^n = z^2 + w^2$.
+Observe que $13^n = 13^{n-1} \cdot 13^1$.
+Pela base, temos que $13^1 = 2^2 + 3^2$, e pela hipótese de indução, $13^{n-1} = x^2 + y^2$.
+Logo,
+\begin{align*}
+  13^n = 13^{n-1} \cdot 13^1 &= (x^2 + y^2) \cdot (2^2 + 3^2) \\
+  &= (2^2 x^2 + 3^2 y^2) + (3^2 x^2 + 2^2 y^2) \\
+  &= ((2x)^2 + (3y)^2) + ((3x)^2 + (2y)^2) \; .
+\end{align*}
+Vamos manipular a expressão para criar 2 quadrados perfeitos.
+
+Observe que, para formar 2 quadrados perfeitos, faltam os termos $\pm \, 2 \cdot 2 \cdot 3 \cdot xy = \pm \, 12xy$.
+Logo, ao se somar $+ 12xy$ e $- 12xy$ em $((2x)^2 + (3y)^2) + ((3x)^2 + (2y)^2)$, mantemos a igualdade:
+\begin{align*}
+  &\big[ ((2x)^2 + (3y)^2) + ((3x)^2 + (2y)^2) \big] + \big[ 12xy - 12xy \big] = (2x + 3y)^2 + (3x - 2y)^2
+\end{align*}
+Portanto, os $z,w$ que queríamos existem e são $z = (2x + 3y)$ e $w = (3x - 2y)$.
+
+\end{proof}
+
+\section*{Exercício 42}
+Uma máquina automática é preenchida com uma quantidade ímpar de exercícios de FUMAC e uma quantidade ímpar de exercícios de Cálculo I.
+Sempre que colocamos uma ficha na máquina, ela libera 2 exercícios de uma vez.
+A máquina só é abastecida após ficar vazia.
+Prove que, antes de ficar vazia, a máquina irá liberar pelo menos um par que é composto por um exercício de FUMAC e um exercício de Cálculo I.
+
+\begin{proof}
+Sejam $f,c$ os números não-negativos de exercícios de FUMAC e de Cálculo I, respectivamente.
+Como tanto $f$ quanto $c$ são ímpares, então existem $f' , c' \in \mathbb{Z}$ tais que $f = 2f' + 1$ e $c = 2c' + 1$.
+
+Vamos começar a retirada de pares de exercícios das máquinas.
+
+Caso sejam retirados um par FUMAC-Cálculo, temos o que queremos.
+Então vamos esgotar nossas possibilidades retirando pares com exercícios iguais.
+Observe que é possível retirar, no máximo, $f'$ pares de exercícios de FUMAC e $c'$ pares de exercícios de Cálculo I.
+Agora, temos a máquina na seguinte situação:
+\begin{itemize}
+  \item Tínhamos $f = 2f' + 1$ exercícios de FUMAC. Retiramos $2f'$, então sobrou 1 na máquina.
+  \item Tínhamos $c = 2c' + 1$ exercícios de Cálculo I. Retiramos $2c'$, então sobrou 1 na máquina.
+\end{itemize}
+Como previsto, em última instância sobrou um par FUMAC-Cálculo.
+
+\end{proof}
+
+\section*{Exercício 47}
+Prove que para todo inteiro $n \geq 2$, se $x_1,\dots, x_n$ são números reais, então
+\[
+\sqrt{x_1^2 + \dots + x_n^2} \leq |x_1| + \dots + |x_n| \; .
+\]
+Obs.: Pode ser útil considerar um número positivo $z$ tal que $z^2 = \sum_{i=1}^{n-1} x_i^2$ .
+
+\begin{proof}
+Vamos provar por indução em $n$.
+
+\base Para $n=2$, 
+\end{proof}
+
+\end{document}
