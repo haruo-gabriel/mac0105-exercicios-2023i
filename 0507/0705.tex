@@ -1,0 +1,136 @@
+\documentclass{article}
+\author{Gabriel Haruo Hanai Takeuchi - NUSP: 13671636}
+\title{MAC0105 - Exercícios para 07/05}
+\date{}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[skip=5pt]{parskip}
+\usepackage{amsmath, amssymb, amsthm}
+
+\newcommand{\set}[1]{\{#1\}}
+
+\begin{document}
+\maketitle
+
+\section*{Exercício 18}
+Dadas casas de pombo $h_1,\dots, h_t$ e inteiros $n_1,\dots, n_t$, se $1 + \sum^{t}_{i=1}(n_i - 1)$ pombos são distribuídos entre as $t$ casas de pombo, então existe $i$ tal que $h_i$ contém pelo menos $n_i$ pombos.
+\begin{proof}
+Vamos iniciar avaliando a quantidade máxima de pombos em uma casa. Se distribuídos igualmente (na medida do possível, pois estamos lidando com inteiros) em todas as casas, a quantidade máxima de pombos em uma casa é
+\begin{align*}
+    \Big\lceil \dfrac{1 + \sum^{t}_{i=1}(n_i - 1)}{t} \Big\rceil = \Big\lceil \dfrac{1 - t + \sum^{t}_{i=1}n_i}{t} \Big\rceil = \Big\lceil \dfrac{1}{t} - 1 + \dfrac{1}{t}\sum^{t}_{i=1}n_i \Big\rceil .
+\end{align*}
+Vamos separar em casos, de acordo com o critério dos $n_i$.
+
+\textbf{Caso I:}
+Se $n_1 = \dots = n_i$, então
+\begin{align*}
+    \Big\lceil \dfrac{1}{t} - 1 + \dfrac{1}{t}\sum^{t}_{i=1}n_i \Big\rceil = \Big\lceil \dfrac{1}{t} - 1 + n_1 \Big\rceil = n_1 = \dots = n_i .
+\end{align*}
+Note que $0 < \frac{1}{t} \leq 1$, logo $ -1 < \frac{1}{t} - 1 \leq 0$, e portanto o teto acima é exatamente igual a $n_1 = \dots = n_i$.
+
+Observe que $\frac{1}{t}\sum^{t}_{i=1}n_i$ é a média aritmética entre os $n_i$.
+Como supomos que todos são iguais, então esse somatório é igual a qualquer $n_i$ (particularmente, é igual a $n_1$).
+
+O resultado que tivemos é que o número máximo de pombos em cada casa é $n_1$ (mais especificamente, todas as casas têm exatamente $n_1$ pombos).
+Logo, claramente existe uma casa com pelo menos $n_i$ pombos, como queríamos.
+
+\textbf{Caso II:} Se os $n_i$ não são todos iguais, então existe um menor $n_i$.
+Seja $n_m$ o menor dos $n_i$'s. então
+\begin{align*}
+    \Big\lceil \dfrac{1}{t} - 1 + \dfrac{1}{t}\sum^{t}_{i=1}n_i \Big\rceil \geq \Big\lceil \overbrace{\dfrac{1}{t} - 1}^{> -1 \mbox{ e } \leq 0} + n_m \Big\rceil = n_m .
+\end{align*}
+
+Logo, existe um $i$ desejado tal que $h_i$ contém no mínimo $n_i$ pombos. Nesse caso, $i=m$, o índice do menor $n_i$.
+
+Cobertos todos os casos, está demonstrado o resultado.
+\end{proof}
+
+\section*{Exercício 22}
+Prove que para quaisquer $n + 1$ números escolhidos de $\{1, 2,\dots, 2n - 1\}$, existem 2 desses números cuja soma é igual a $2n$.
+
+% tentativa 3
+\begin{proof}
+Note: os pares que somados resultam em $2n$ são os elementos de $A$ tal que
+\[ A = \set{ \set{1,2n-1}, \set{2,2n-2}, \set{3,2n-3}, \dots, \set{n-1,n+1} }\]
+Observe que há $n-1$ elementos em $A$. Note que único elemento de \set{1, 2,\dots, 2n - 1} que não possui par em $A$ é $n$.
+
+Por exaustão, vamos escolher $n+1$ elementos de $A$ com o objetivo de não termos 2 números que somam $2n$, ou seja, que não formem um par não-ordenado de $A$.
+Perceba que pelo princípio da casa dos pombos, o máximo de elementos que podemos pegar e não termos um par de $A$ é $n$.
+O $n$-ésimo primeiro termo obrigatoriamente formará um par que some $2n$.
+
+Logo, sempre existirão 2 números cuja soma resulta em $2n$, como queríamos.
+\end{proof}
+
+
+\section*{Exercício 24}
+Prove que a soma dos termos de uma progressão geométrica com $n$ termos, termo inicial a e razão $q$ é dada por
+\[ \dfrac{a(q^n - 1)}{q - 1} \]
+\begin{proof}
+Note que a a soma dos termos de uma progressão geométrica com $n$ termos é
+\[ S_n = \sum_{i=0}^{n-1} a q^i = a + aq + aq^2 + \dots + aq^{n-1} . \qquad (i)\]
+Multiplicando os dois lados por $q$, temos
+\[ q S_n = aq + aq^2 + \dots + aq^n . \qquad (ii)\]
+Subtraindo (i) de (ii), temos 
+\begin{gather*}
+S_n - q S_n  = a + aq + \dots + aq^{n-1} - (aq + aq^2 + \dots + aq^n) \\
+S_n (1 - q) = a - aq^n \\
+S_n  = \dfrac{a - aq^n}{(1 - q)} = \dfrac{a(1 - q^n)}{(1 - q)}
+\end{gather*}
+Multiplicando por $\frac{-1}{-1}$, temos finalmente que
+\[ S_n = \dfrac{a(q^n - 1)}{(q-1)}, \]
+como queríamos.
+\end{proof}
+
+\section*{Exercício 25}
+O número harmônico de ordem $n$, denotado por $H_n$, é definido como $H_n = \sum_{i=1}^{n}(1/i)$.
+Prove que $H_{2^n} \geq 1 + n/2$ para todo inteiro $n \geq 0$.
+
+\begin{proof}
+Vamos provar por indução.
+
+\textbf{Base: } Para $n=0$,
+\[ H_{2^n} = H_1 = \sum_ {i=1}^{1} \dfrac{1}{i} = 1 \geq \dfrac{1}{2} . \]
+
+\textbf{Passo: } Suponha que $H_{2^n} \geq 1 + n/2$. Vamos provar que $H_{2^{(n+1)}} \geq 1 + (n+1)/2$.
+\begin{align*}
+&H_{2^n} = 1 + \dfrac{1}{2} + \dfrac{1}{3} + \dots + \dfrac{1}{2^n} \geq 1 + \dfrac{n}{2} \\
+&\implies 1 + \dfrac{1}{2} + \dfrac{1}{3} + \dots + \dfrac{1}{2^n} + \Big(\dfrac{1}{2}\Big) \geq 1 + \dfrac{n}{2} + \Big(\dfrac{1}{2}\Big) \\
+&\implies 1 + \dfrac{1}{2} + \dfrac{1}{3} + \dots + \dfrac{1}{2^n} + \Big(\dfrac{1}{2}\Big) \geq 1 + \dfrac{n+1}{2} \\
+\end{align*}
+Note que $\frac{1}{2}$ é sempre maior que $\frac{1}{2^{(n+1)}}$ para todo $n \geq 0$.
+Logo, temos o resultado
+\begin{align*}
+    &1 + \dfrac{1}{2} + \dfrac{1}{3} + \dots + \dfrac{1}{2^n} + \Big(\dfrac{1}{2}\Big) \geq 1 + \dfrac{1}{2} + \dfrac{1}{3} + \dots + \dfrac{1}{2^n} + \Big(\dfrac{1}{2^{(n+1)}}\Big) \geq 1 + \dfrac{n+1}{2} \\
+    &\implies H_{2^{(n+1)}} \geq  1 + \dfrac{n+1}{2} ,
+\end{align*}
+como queríamos.
+\end{proof}
+
+\section*{Exercício 26}
+Mostre que para todo inteiro positivo $n$ vale que \[ \sum_{i=1}^{n}i^2 = \dfrac{n}{6} (n+1) (2n+1) \]
+\begin{proof}
+Vamos provar por indução.
+
+Antes de iniciar a prova em si, note que $\frac{n}{6}(n+1)(2n+1) = \dfrac{2n^3 + 3n^2 + n}{6}$.
+Vamos usar esse resultado para facilitar o passo indutivo.
+
+\textbf{Base: }Suponha n = 1.
+
+Diretamente, $\sum_{i=1}^{1}i^2 = 1 = \dfrac{1}{6} (1+1) (2*1+1)$.
+
+\textbf{Passo: }Fixe $n \geq 2$ e suponha que vale para $n-1$.
+
+Por hipótese,
+\begin{align*}
+    \sum_{i=1}^{n-1}i^2 = \dfrac{(n-1)((n-1)+1) (2(n-1)+1)}{6}  = \dfrac{(n-1)n(2n-1)}{6} \\
+\end{align*}
+Logo,
+\begin{align*}
+    \implies \sum_{i=1}^{n-1}i^2 + n^2 = \dfrac{(n-1)n(2n-1)}{6} + n^2 = \dfrac{2n^3 - 3n^2 + n}{6} + \dfrac{6n^2}{6} = \dfrac{2n^3 + 3n^2 + n}{6} , \\
+\end{align*}
+como queríamos (de acordo com a observação pré-prova).
+
+\end{proof}
+
+\end{document}

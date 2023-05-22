@@ -1,0 +1,215 @@
+\documentclass{article}
+\author{Gabriel Haruo Hanai Takeuchi - NUSP: 13671636}
+\title{MAC0105 - Exercícios}
+\date{}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=3cm]{geometry}
+\usepackage[skip=5pt]{parskip}
+\usepackage{amsmath, amssymb, amsthm}
+
+\begin{document}
+\maketitle
+
+\section*{Exercício 11}
+Escreva a tabela verdade das seguintes proposições:
+
+(a) $p \implies (q \lor r)$
+
+\textit{Resposta:}
+\begin{displaymath}
+\begin{array}{|c c c|c|}
+% |c c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+p & q  & r & p \implies (q \lor r)\\ % Use & to separate the columns
+\hline % Put a horizontal line between the table header and the rest.
+T & T & T & T\\
+T & T & F & T\\
+T & F & T & T\\
+F & T & T & T\\
+T & F & F & F\\
+F & T & F & T\\
+F & F & T & T\\
+F & F & F & T\\
+\end{array}
+\end{displaymath}
+
+(b) $\neg q \implies (\neg q \lor r)$
+
+\textit{Resposta:}
+\begin{displaymath}
+\begin{array}{|c c c c|c|}
+p & q  & r & \neg q \lor r & \neg q \implies (\neg q \lor r)\\
+\hline
+T & T & T & T & T\\
+T & T & F & F & T\\
+T & F & T & T & T\\
+F & T & T & T & T\\
+T & F & F & T & T\\
+F & T & F & F & T\\
+F & F & T & T & T\\
+F & F & F & T & T\\
+\end{array}
+\end{displaymath}
+A sentença $\neg q \implies (\neg q \lor r)$ é uma tautologia.
+
+(c) $(p \land (p \implies q)) \implies q$
+
+\textit{Resposta:}
+\begin{displaymath}
+\begin{array}{|c c c c|c|}
+p & q & p \implies q & p \land (p \implies q) & (p \land (p \implies q)) \implies q\\
+\hline
+T & T & T & T & T\\
+T & F & F & F & T\\
+F & T & T & F & T\\
+F & F & T & F & T\\
+\end{array}
+\end{displaymath}
+A sentença $(p \land (p \implies q)) \implies q$ é uma tautologia.
+
+(d) $p \implies q$
+
+\textit{Resposta:}
+\begin{displaymath}
+\begin{array}{|c c|c|}
+p & q & p \implies q\\
+\hline
+T & T & T\\
+T & F & F\\
+F & T & T\\
+F & F & T\\
+\end{array}
+\end{displaymath}
+
+(e) $\neg (p \implies q)$
+
+\textit{Resposta:}
+\begin{displaymath}
+\begin{array}{|c c|c|}
+p & q & \neg (p \implies q)\\
+\hline
+T & T & F\\
+T & F & T\\
+F & T & F\\
+F & F & F\\
+\end{array}
+\end{displaymath}
+
+(f) $\neg p \land q$
+
+\textit{Resposta:}
+\begin{displaymath}
+\begin{array}{|c c|c|}
+p & q & \neg p \land q\\
+\hline
+T & T & F\\
+T & F & F\\
+F & T & T\\ F & F & F\\ \end{array} \end{displaymath}
+
+\section*{Exercício 12}
+
+Prove os seguintes itens de forma direta ou utilizando a contrapositiva.
+Pense bem qual a melhor forma de provar cada item.
+
+(a) Se $x$ é ímpar, então $x^2$ é ímpar.
+\begin{proof}
+Vamos provar diretamente.
+
+Suponha que $x$ seja ímpar.
+Logo, existe $k \in \mathbb{N}$ tal que $x = 2k + 1$.
+Multiplicando $x$ por $x$, temos
+\begin{align*}
+    x^2 &= (2k + 1)^2\\
+    &= (4k^2 + 4k) + 1\\
+    &= 2(2k^2 + 2k) + 1 .
+\end{align*}
+Observe que $2k^2 + 2k \in \mathbb{N}$.
+Note que $x^2$ é da forma $2m + 1$, sendo $m = 2k^2 + 2k \in \mathbb{N}$.
+Logo, $x^2$ é da forma de um número ímpar, como queríamos.
+
+\end{proof}
+
+(b) Suponha que $x$ e $y$ são números reais. Se $y^3 + yx^2 \leq x^3 + xy^2$, então $y \leq x$.
+\begin{proof}
+Vamos provar por contrapositiva, ou seja, $y > x \implies y^3 + yx^2 > x^3 + xy^2$.
+
+Suponha que $y > x$.
+Logo,
+\begin{align*}
+    y > x &\implies y(y^2 + x^2) > x(x^2 + y^2) , \quad \mbox{isto pois }(x^2 + y^2) > 0\\
+    &\implies y^3 + yx^2 > x^3 + xy^2
+\end{align*}
+Como queríamos.
+\end{proof}
+
+(c) Sejam $x$, $y$ e $z$ números inteiros. Se $x \mid y$ e $y \mid z$, então $x \mid z$ ($a \mid b$ significa que $a$ divide $b$).
+
+\begin{proof}
+Vamos provar diretamente.
+
+Suponha que $x \mid y$.
+Logo, $\exists a \in \mathbb{Z}$ tal que $y = a \cdot x$.
+Suponha que $y \mid z$, ou seja, $a \cdot x \mid z$.
+Logo, $\exists b \in \mathbb{Z}$ tal que $z = b \cdot a \cdot x$.
+Note que $z = (b \cdot a) \cdot x$, onde $ab \in \mathbb{Z}$.
+Portanto, $x \mid z$.
+
+\end{proof}
+
+\section*{Exercício 15}
+
+Seja $p$ uma proposição como abaixo:
+\[ p = \forall x,y \in \mathbb{N}, ((x<y) \implies (\exists z \in \mathbb{N}, x<z<y)) \]
+Faça o que é pedido nos itens abaixo:
+
+(a) Escreva a negação $\neg p$ de $p$:
+
+\textit{Resposta: }
+\begin{align*}
+&\neg(\forall x,y \in \mathbb{N}, ((x<y) \implies (\exists z \in \mathbb{N}, x<z<y)))\\
+&\equiv \neg(\forall x,y \in \mathbb{N}, (\neg(x<y) \lor (\exists z \in \mathbb{N}, x<z<y))) \qquad \mbox{note que }(p \implies q \equiv \neg p \lor q) \\
+&\equiv \exists x,y \in \mathbb{N}, ((x<y) \land \neg (\exists z \in \mathbb{N}, x<z<y)) \\
+&\equiv \exists x,y \in \mathbb{N}, ((x<y) \land \neg (\exists z \in \mathbb{N}, z>x \land z<y)) \\
+&\equiv \exists x,y \in \mathbb{N}, ((x<y) \land (\forall z \in \mathbb{N}, z \leq x \lor z \geq y))
+\end{align*}
+
+(b) Escreva em língua portuguesa, com palavras, o significado de $p$ e de $\neg p$:
+
+\textit{Resposta:}
+
+Em português, $p$ é:
+
+Para quaisquer $x,y$ naturais, se $x$ é menor que $y$, então existe $z$ natural tal que $z$ está entre $x$ e $y$.
+
+Em português, $\neg p$ é:
+
+Existe pelo menos um par $x,y$ de naturais tais que $x$ é menor que $y$ e todo natural é menor-igual a $x$ ou maior-igual a $y$.
+
+(c) $p$ é verdadeira? Justifique.
+
+\textit{Resposta:}
+
+A proposição $p$ é falsa. Vamos mostrar um contraexemplo:
+
+Suponha $x=1, y=2$.
+Não existe natural entre $x$ e $y$ que seja diferente de $x$ e $y$.
+
+(d) $\neg p$ é verdadeira? Justifique.
+
+\textit{Resposta:}
+
+A proposição $\neg p$ é verdadeira.
+Basta mostrar um exemplo de $x,y$ que satisfaça as condições impostas.
+
+O exemplo sempre ocorre se $y=x+1$.
+Portanto, suponha $x,y = x+1$.
+Perceba que qualquer número natural está no intervalo $[0,x] \cup [y,+\infty] = [0,x] \cup [x+1,+\infty]$.
+Logo, existem $x,y$ tais que $(x < y)$ e $(\forall z \in \mathbb{N}, z \leq x \lor z \geq y)$.
+
+Portanto, $\neg p$ é verdadeiro.
+
+\end{document}

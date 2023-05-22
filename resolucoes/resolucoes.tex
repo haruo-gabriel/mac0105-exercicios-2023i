@@ -1,0 +1,85 @@
+\documentclass{article}
+\author{Gabriel Haruo Hanai Takeuchi - NUSP: 13671636}
+\title{MAC0105 - Exercícios}
+\date{}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=3cm]{geometry}
+\usepackage[skip=5pt]{parskip}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\graphicspath{{./images}}
+\usepackage{wrapfig}
+\usepackage{braket}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercício 2}
+Prove que dado um inteiro $n$ ímpar, vale que
+\[
+1+2+\dots+n = n(n+1)/2.
+\]
+\textbf{Obs}.: Para quem sabe o que é \textit{indução}, não é para
+usar neste exercício.
+
+\hrulefill
+
+\begin{proof}
+Some o primeiro e último elemento da sequência: temos $1 + n$.
+Agora, some o segundo e penúltimo: temos $2 + (n-1) = 1 + n$.
+Facilmente, é possível fazer uma indução, mas a pura intuição basta para o problema.
+Note que estamos extraindo $\frac{n-1}{2}$ \textbf{pares} da sequência, mas temos um $n$ ímpar, enão resta o número do meio $\frac{n+1}{2}$.
+Logo,
+\begin{align*}
+&1 + 2 + 3 + \dots + (n-1) + n \\
+&= \dfrac{n-1}{2} \cdot (n+1) + \dfrac{n+1}{2} \\
+&= \dfrac{(n+1)(n-1 + 1)}{2} \\
+&= \dfrac{(n+1)n}{2}
+\end{align*}
+\end{proof}
+
+\section*{Exercício 4}
+
+Dizemos que $A$ e $B$ são conjuntos \emph{comparáveis} se $A\subseteq B$ ou $B\subseteq A$.
+Escreva com suas palavras uma demonstração do seguinte resultado:
+
+\textit{Seja $X$ um conjunto finito com $n$ elementos.
+Suponha que $A_1,A_2,\dots,A_n,A_{n+1},A_{n+2}$ são subconjuntos de $X$, todos
+distintos entre si.
+Então existem $i$ e $j$ com $1\leq i\leq n+2$ e $1\leq j\leq n+2$ tais que $A_i$ e $A_j$ \textbf{não} são comparáveis.}
+
+\begin{proof}
+
+\end{proof}
+
+\section*{Exercício 30}
+Prove que para todo inteiro positivo $n$ vale que $n^3 \leq 3^n$.
+\begin{proof}
+Vamos provar por indução forte.
+
+\textbf{Base: } Para $n=1$, diretamente $1^3 = 1 \leq 3 = 3^1$.
+Para $n=2$, diretamente $2^3 = 8 \leq 9 = 3^2$
+
+\textbf{Passo: } Fixe $n \geq 3$ e suponha a H.I. para $n-1$.
+
+\begin{center}
+(H.I.): $(n-1)^3 < 3^{n-1}$.
+\end{center}
+
+\begin{align*}
+    n^3 = \Bigl( \dfrac{n (n-1)}{(n-1)} \Bigr)^3 = n^3 \dfrac{n-1}{n-1}
+\end{align*}
+
+\end{proof}
+
+\section*{Exercício 38}
+\begin{proof}
+    
+\end{proof}
+
+\end{document}
