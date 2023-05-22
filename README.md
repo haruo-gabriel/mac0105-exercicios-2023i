@@ -2,3 +2,5 @@
 Professor: Guilherme Mota
 
 Este é um repositório das minhas resoluções das listas de exercícios.
+
+Os diretórios foram nomeados de acordo com a data de entrega ( MÊS/DIA ).
