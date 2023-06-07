@@ -1,5 +1,5 @@
 # MAC0105 - Fundamentos de Matemática para Computação (2023i)
-Repositório de armazenamento das minhas resoluções das listas de exercícios.
+Repositório que armazena minhas resoluções das listas de exercícios.
 
 Os diretórios foram nomeados de acordo com a data de entrega ( MÊS / DIA ).
 O diretório `/resolucoes` contém outras questões resolvidas que não foram cobradas.
